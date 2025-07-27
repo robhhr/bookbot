@@ -12,7 +12,15 @@ def main():
     num_words = get_num_words(book)
     char_count = get_char_count(book)
     sorted_dictionary = get_sorted_dictionary_list(char_count)
+    print_book_template(path, num_words, sorted_dictionary)
 
+
+def get_book_text(filepath):
+    with open(filepath) as f:
+        return f.read()
+
+
+def print_book_template(path, num_words, sorted_dictionary):
     print("============ BOOKBOT ============")
     print(f"Analyzing book found at {path}...")
     print("----------- Word Count ----------")
@@ -23,11 +31,6 @@ def main():
         if is_alpha:
             print(f"{i['char']}: {i['num']}")
     print("============= END ===============")
-
-
-def get_book_text(filepath):
-    with open(filepath) as f:
-        return f.read()
 
 
 main()
